@@ -1,16 +1,5 @@
 import { IDoctorSchedule } from "./schedule.interface";
 
-export interface IDoctorExperiences {
-  id?: string;
-  instituteName: string;
-  designation: string;
-  department: string;
-  startDate: string;
-  endDate: string;
-  createdAt?: string;
-  updatedAt?: string;
-}
-
 export interface IDoctor {
   id?: string;
   name: string;
@@ -18,13 +7,13 @@ export interface IDoctor {
   password: string;
   contactNumber: string;
   address?: string;
-  about: string;
   registrationNumber: string;
+  experience?: number;
   gender: "MALE" | "FEMALE";
   appointmentFee: number;
-  followUpFee?: number;
   qualification: string;
   currentWorkingPlace: string;
+  designation: string;
   specialties?: string[];
   profilePhoto?: File | string;
   removeSpecialties?: string[];
@@ -42,5 +31,4 @@ export interface IDoctor {
   }>;
 
   doctorSchedules?: IDoctorSchedule[];
-  doctorExperiences?: IDoctorExperiences[];
 }

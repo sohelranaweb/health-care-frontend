@@ -8,11 +8,11 @@ import { Suspense } from "react";
 
 async function AdminDashboardContent() {
   const result = await getDashboardMetaData();
-  console.log("result dashboard", result);
+  // console.log("result dashboard", result);
   const data: IAdminDashboardMeta = result.data;
 
   const totalRevenue = data?.totalRevenue?._sum?.amount || 0;
-  console.log("data dashboard", data);
+  // console.log("data dashboard", data);
 
   return (
     <div className="space-y-6">

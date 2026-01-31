@@ -27,7 +27,7 @@ const ConsultationPage = async ({
 
   const doctors = doctorsResponse?.data || [];
   const specialties = specialtiesResponse?.data || [];
-  console.log("doctors consultation page", doctors);
+  // console.log("doctors consultation page", doctors);
 
   return (
     <div className="container mx-auto px-4 py-8">

@@ -16,30 +16,27 @@ export const createDoctorZodSchema = z.object({
     .string()
     .min(1, "Registration Number is required")
     .min(3, "Registration Number must be at least 3 characters long"),
-  //   experience: z
-  //     .number()
-  //     .positive("Experience is required and must be more than 0"),
+  experience: z
+    .number()
+    .positive("Experience is required and must be more than 0"),
   gender: z.enum(["MALE", "FEMALE"], {
     message: "Gender must be either 'MALE' or 'FEMALE'",
   }),
   appointmentFee: z
     .number()
     .positive("Appointment Fee is required and must be more than 0"),
-  followUpFee: z
-    .number()
-    .positive("Follow Up Fee is required and must be more than 0"),
   qualification: z
     .string()
     .min(1, "Qualification is required")
     .min(3, "Qualification must be at least 3 characters long"),
-  //   currentWorkingPlace: z
-  //     .string()
-  //     .min(1, "Current Working Place is required")
-  //     .min(3, "Current Working Place must be at least 3 characters long"),
-  //   designation: z
-  //     .string()
-  //     .min(1, "Designation is required")
-  //     .min(2, "Designation must be at least 2 characters long"),
+  currentWorkingPlace: z
+    .string()
+    .min(1, "Current Working Place is required")
+    .min(3, "Current Working Place must be at least 3 characters long"),
+  designation: z
+    .string()
+    .min(1, "Designation is required")
+    .min(2, "Designation must be at least 2 characters long"),
   specialties: z
     .array(z.uuid("Each specialty must be a valid UUID"))
     .min(1, "At least one specialty is required"),
@@ -60,7 +57,7 @@ export const updateDoctorZodSchema = z.object({
     .string()
     .min(3, "Registration Number must be at least 3 characters long")
     .optional(),
-  //   experience: z.number().min(0, "Experience cannot be negative").optional(),
+  experience: z.number().min(0, "Experience cannot be negative").optional(),
   gender: z
     .enum(["MALE", "FEMALE"], {
       message: "Gender must be either 'MALE' or 'FEMALE'",
@@ -70,7 +67,6 @@ export const updateDoctorZodSchema = z.object({
     .number()
     .min(0, "Appointment Fee cannot be negative")
     .optional(),
-  followUpFee: z.number().min(0, "Follow Up Fee cannot be negative").optional(),
   qualification: z
     .string()
     .min(3, "Qualification must be at least 3 characters long")
@@ -79,10 +75,10 @@ export const updateDoctorZodSchema = z.object({
     .string()
     .min(3, "Current Working Place must be at least 3 characters long")
     .optional(),
-  //   designation: z
-  //     .string()
-  //     .min(2, "Designation must be at least 2 characters long")
-  //     .optional(),
+  designation: z
+    .string()
+    .min(2, "Designation must be at least 2 characters long")
+    .optional(),
   specialties: z
     .array(z.uuid("Each specialty must be a valid UUID"))
     .optional(),

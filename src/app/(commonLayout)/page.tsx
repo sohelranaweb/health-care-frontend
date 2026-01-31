@@ -6,7 +6,7 @@ import Head from "next/head";
 
 export default async function Home() {
   const data = await getSpecialities();
-  console.log("data specialt", data.data);
+  // console.log("data specialt", data.data);
   return (
     <>
       <Head>

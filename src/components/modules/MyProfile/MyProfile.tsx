@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { getInitials } from "@/lib/formatters";
 import { updateMyProfile } from "@/services/auth/auth.service";
 import { UserInfo } from "@/types/user.interface";
@@ -38,8 +37,6 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
 
   const getProfileData = () => {
     if (userInfo.role === "ADMIN") {
-      return userInfo.admin;
-    } else if (userInfo.role === "SUPER_ADMIN") {
       return userInfo.admin;
     } else if (userInfo.role === "DOCTOR") {
       return userInfo.doctor;
@@ -82,7 +79,7 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
       }
     });
   };
-  console.log("user info my profile", userInfo);
+
   return (
     <div className="space-y-6">
       {/* Page Header */}
@@ -223,12 +220,12 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="qualification">Qualification</Label>
+                      <Label htmlFor="experience">Experience (Years)</Label>
                       <Input
-                        id="qualification"
-                        name="qualification"
-                        defaultValue={userInfo.doctor.qualification || ""}
-                        required
+                        id="experience"
+                        name="experience"
+                        type="number"
+                        defaultValue={userInfo.doctor.experience || ""}
                         disabled={isPending}
                       />
                     </div>
@@ -246,12 +243,12 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="followUpFee">Follow Up Fee</Label>
+                      <Label htmlFor="qualification">Qualification</Label>
                       <Input
-                        id="followUpFee"
-                        name="followUpFee"
-                        type="number"
-                        defaultValue={userInfo.doctor.followUpFee || ""}
+                        id="qualification"
+                        name="qualification"
+                        defaultValue={userInfo.doctor.qualification || ""}
+                        required
                         disabled={isPending}
                       />
                     </div>
@@ -270,6 +267,17 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                     </div>
 
                     <div className="space-y-2">
+                      <Label htmlFor="designation">Designation</Label>
+                      <Input
+                        id="designation"
+                        name="designation"
+                        defaultValue={userInfo.doctor.designation || ""}
+                        required
+                        disabled={isPending}
+                      />
+                    </div>
+
+                    <div className="space-y-2">
                       <Label htmlFor="gender">Gender</Label>
                       <select
                         id="gender"
@@ -281,16 +289,6 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
                         <option value="MALE">Male</option>
                         <option value="FEMALE">Female</option>
                       </select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="about">About</Label>
-                      <Textarea
-                        id="about"
-                        name="about"
-                        defaultValue={userInfo.doctor.about || ""}
-                        required
-                        disabled={isPending}
-                      />
                     </div>
                   </>
                 )}

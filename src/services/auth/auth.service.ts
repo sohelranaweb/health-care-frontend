@@ -13,10 +13,8 @@ import { changePasswordSchema } from "./../../zod/auth.validation";
 import { verifyAccessToken } from "@/lib/jwtHandler";
 import { deleteCookie, getCookie, setCookie } from "./takenHandlers";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export async function updateMyProfile(formData: FormData) {
   try {
-    // console.log("raw form data", typeof formData.get("appointmentFee"));
     // Create a new FormData with the data property
     const uploadFormData = new FormData();
 
@@ -28,8 +26,6 @@ export async function updateMyProfile(formData: FormData) {
       }
     });
 
-    // console.log("data profile update", data);
-
     // Add the data as JSON string
     uploadFormData.append("data", JSON.stringify(data));
 
@@ -38,17 +34,16 @@ export async function updateMyProfile(formData: FormData) {
     if (file && file instanceof File && file.size > 0) {
       uploadFormData.append("file", file);
     }
-    // console.log("uploaded form data", uploadFormData);
+
     const response = await serverFetch.patch(`/user/update-my-profile`, {
       body: uploadFormData,
     });
-    // console.log("response", response);
+
     const result = await response.json();
 
     if (result.success) {
       revalidateTag("user-info", { expire: 0 });
     }
-
     return result;
   } catch (error: any) {
     console.log(error);

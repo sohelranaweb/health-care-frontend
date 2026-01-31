@@ -55,10 +55,10 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
             {/* Doctor Info */}
             <div className="flex-1 space-y-4">
               <div>
-                <h1 className="text-3xl font-bold">{doctor?.name}</h1>
-                {/* <p className="text-muted-foreground mt-1">
+                <h1 className="text-3xl font-bold">{doctor.name}</h1>
+                <p className="text-muted-foreground mt-1">
                   {doctor.designation}
-                </p> */}
+                </p>
               </div>
 
               {/* Specialties */}
@@ -139,11 +139,11 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
               <Briefcase className="h-5 w-5 text-muted-foreground" />
               <div>
                 <p className="text-sm text-muted-foreground">Experience</p>
-                {/* <p className="font-semibold">
+                <p className="font-semibold">
                   {doctor.experience
                     ? `${doctor.experience} years`
                     : "Not specified"}
-                </p> */}
+                </p>
               </div>
             </div>
             <div className="flex items-center gap-3">

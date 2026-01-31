@@ -18,7 +18,7 @@ const PublicNavbar = async () => {
   ];
   const accessToken = await getCookie("accessToken");
   const userInfo = accessToken ? await getUserInfo() : null;
-  console.log("userInfo", userInfo);
+  // console.log("userInfo", userInfo);
   const dashboardRoute = userInfo
     ? getDefaultDashboardRoute(userInfo.role)
     : "/";

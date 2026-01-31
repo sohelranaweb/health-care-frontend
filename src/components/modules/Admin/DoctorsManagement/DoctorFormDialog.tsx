@@ -241,7 +241,7 @@ const DoctorFormDialog = ({
               <InputFieldError state={state} field="registrationNumber" />
             </Field>
 
-            {/* <Field>
+            <Field>
               <FieldLabel htmlFor="experience">
                 Experience (in years)
               </FieldLabel>
@@ -258,7 +258,7 @@ const DoctorFormDialog = ({
                 min="0"
               />
               <InputFieldError state={state} field="experience" />
-            </Field> */}
+            </Field>
 
             <Field>
               <FieldLabel htmlFor="gender">Gender</FieldLabel>
@@ -299,18 +299,6 @@ const DoctorFormDialog = ({
               />
               <InputFieldError state={state} field="appointmentFee" />
             </Field>
-            <Field>
-              <FieldLabel htmlFor="followUpFee">FollowUp Fee</FieldLabel>
-              <Input
-                id="followUpFee"
-                name="followUpFee"
-                type="number"
-                placeholder="100"
-                defaultValue={isEdit ? doctor?.followUpFee : undefined}
-                min="0"
-              />
-              <InputFieldError state={state} field="followUpFee" />
-            </Field>
 
             <Field>
               <FieldLabel htmlFor="qualification">Qualification</FieldLabel>
@@ -344,7 +332,7 @@ const DoctorFormDialog = ({
               <InputFieldError state={state} field="currentWorkingPlace" />
             </Field>
 
-            {/* <Field>
+            <Field>
               <FieldLabel htmlFor="designation">Designation</FieldLabel>
               <Input
                 id="designation"
@@ -357,7 +345,7 @@ const DoctorFormDialog = ({
                 }
               />
               <InputFieldError state={state} field="designation" />
-            </Field> */}
+            </Field>
 
             {!isEdit && (
               <Field>

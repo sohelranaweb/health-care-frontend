@@ -1,4 +1,4 @@
-import InfoRow from "@/components/shared/InRow";
+import InfoRow from "@/components/shared/InoRow";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -87,13 +87,13 @@ const DoctorViewDetailDialog = ({
                 </h3>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-muted/50 p-4 rounded-lg">
-                {/* <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3">
                   <Briefcase className="h-4 w-4 mt-1 text-muted-foreground" />
                   <InfoRow
                     label="Designation"
                     value={doctor?.designation || "Not specified"}
                   />
-                </div> */}
+                </div>
                 <div className="flex items-start gap-3">
                   <GraduationCap className="h-4 w-4 mt-1 text-muted-foreground" />
                   <InfoRow
@@ -108,7 +108,7 @@ const DoctorViewDetailDialog = ({
                     value={doctor?.registrationNumber || "Not specified"}
                   />
                 </div>
-                {/* <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3">
                   <Calendar className="h-4 w-4 mt-1 text-muted-foreground" />
                   <InfoRow
                     label="Experience"
@@ -118,7 +118,7 @@ const DoctorViewDetailDialog = ({
                         : "Not specified"
                     }
                   />
-                </div> */}
+                </div>
                 <div className="flex items-start gap-3">
                   <Briefcase className="h-4 w-4 mt-1 text-muted-foreground" />
                   <InfoRow

@@ -23,23 +23,21 @@ export async function createDoctor(_prevState: any, formData: FormData) {
     }
   }
 
+  const experienceValue = formData.get("experience");
   const appointmentFeeValue = formData.get("appointmentFee");
-  const followUpFeeValue = formData.get("followUpFee");
 
   const validationPayload: IDoctor = {
     name: formData.get("name") as string,
     email: formData.get("email") as string,
     contactNumber: formData.get("contactNumber") as string,
     address: formData.get("address") as string,
-    about: formData.get("about") as string,
     registrationNumber: formData.get("registrationNumber") as string,
-    //     experience: experienceValue ? Number(experienceValue) : 0,
+    experience: experienceValue ? Number(experienceValue) : 0,
     gender: formData.get("gender") as "MALE" | "FEMALE",
     appointmentFee: appointmentFeeValue ? Number(appointmentFeeValue) : 0,
-    followUpFee: followUpFeeValue ? Number(followUpFeeValue) : 0,
     qualification: formData.get("qualification") as string,
     currentWorkingPlace: formData.get("currentWorkingPlace") as string,
-    //     designation: formData.get("designation") as string,
+    designation: formData.get("designation") as string,
     password: formData.get("password") as string,
     specialties: specialties,
     profilePhoto: formData.get("file") as File,
@@ -166,22 +164,20 @@ export async function updateDoctor(
   _prevState: any,
   formData: FormData,
 ) {
-  //   const experienceValue = formData.get("experience");
+  const experienceValue = formData.get("experience");
   const appointmentFeeValue = formData.get("appointmentFee");
-  const followUpFeeValue = formData.get("followUpFee");
 
   const validationPayload: Partial<IDoctor> = {
     name: formData.get("name") as string,
     contactNumber: formData.get("contactNumber") as string,
     address: formData.get("address") as string,
     registrationNumber: formData.get("registrationNumber") as string,
-    //     experience: experienceValue ? Number(experienceValue) : 0,
+    experience: experienceValue ? Number(experienceValue) : 0,
     gender: formData.get("gender") as "MALE" | "FEMALE",
     appointmentFee: appointmentFeeValue ? Number(appointmentFeeValue) : 0,
-    followUpFee: followUpFeeValue ? Number(followUpFeeValue) : 0,
     qualification: formData.get("qualification") as string,
     currentWorkingPlace: formData.get("currentWorkingPlace") as string,
-    //     designation: formData.get("designation") as string,
+    designation: formData.get("designation") as string,
   };
 
   // Parse specialties array (for adding new specialties)
