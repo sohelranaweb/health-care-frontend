@@ -1,6 +1,6 @@
 import Hero from "@/components/modules/Home/Hero";
 import Head from "next/head";
-
+export const dynamic = "force-static";
 export default async function Home() {
   return (
     <>
