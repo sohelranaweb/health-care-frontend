@@ -16,9 +16,7 @@ const PublicNavbar = async () => {
     { href: "/ngos", label: "NGOs" },
   ];
   const accessToken = await getCookie("accessToken");
-  console.log("access Token", accessToken);
   const userInfo = accessToken ? await getUserInfo() : null;
-  console.log("userInfo", userInfo);
   const dashboardRoute = userInfo
     ? getDefaultDashboardRoute(userInfo.role)
     : "/";

@@ -38,6 +38,8 @@ const MyProfile = ({ userInfo }: MyProfileProps) => {
   const getProfileData = () => {
     if (userInfo.role === "ADMIN") {
       return userInfo.admin;
+    } else if (userInfo.role === "SUPER_ADMIN") {
+      return userInfo.admin;
     } else if (userInfo.role === "DOCTOR") {
       return userInfo.doctor;
     } else if (userInfo.role === "PATIENT") {

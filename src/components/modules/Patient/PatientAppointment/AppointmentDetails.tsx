@@ -267,11 +267,11 @@ const AppointmentDetails = ({ appointment }: AppointmentDetailProps) => {
           <CardContent className="space-y-4">
             <div>
               <p className="text-2xl font-semibold">
-                {appointment.doctor?.name || "N/A"}
+                Dr. {appointment.doctor?.name || "N/A"}
               </p>
-              {/* <p className="text-muted-foreground">
+              <p className="text-muted-foreground">
                 {appointment.doctor?.designation || "Doctor"}
-              </p> */}
+              </p>
             </div>
 
             <Separator />
@@ -281,7 +281,7 @@ const AppointmentDetails = ({ appointment }: AppointmentDetailProps) => {
                 <>
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                      <Stethoscope className="h-4 w-4 text-muted-foreground" />
+                      <Stethoscope className="h-4 w-4 text-primary" />
                       <span className="text-sm font-medium">Specialties</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -306,14 +306,14 @@ const AppointmentDetails = ({ appointment }: AppointmentDetailProps) => {
                 </div>
               )}
 
-              {/* {appointment.doctor?.experience !== undefined && (
+              {appointment.doctor?.experience !== undefined && (
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">Experience:</span>
                   <span className="font-medium">
                     {appointment.doctor.experience} years
                   </span>
                 </div>
-              )} */}
+              )}
 
               {appointment.doctor?.currentWorkingPlace && (
                 <div className="flex justify-between text-sm">
@@ -330,14 +330,14 @@ const AppointmentDetails = ({ appointment }: AppointmentDetailProps) => {
             <div className="space-y-2">
               {appointment.doctor?.contactNumber && (
                 <div className="flex items-center gap-2 text-sm">
-                  <Phone className="h-4 w-4 text-muted-foreground" />
+                  <Phone className="h-4 w-4 text-primary" />
                   <span>{appointment.doctor.contactNumber}</span>
                 </div>
               )}
 
               {appointment.doctor?.address && (
                 <div className="flex items-start gap-2 text-sm">
-                  <MapPin className="h-4 w-4 text-muted-foreground mt-0.5" />
+                  <MapPin className="h-4 w-4 text-primary mt-0.5" />
                   <span>{appointment.doctor.address}</span>
                 </div>
               )}
@@ -346,12 +346,12 @@ const AppointmentDetails = ({ appointment }: AppointmentDetailProps) => {
             {appointment.doctor?.appointmentFee !== undefined && (
               <>
                 <Separator />
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                <div className="bg-emerald-50 border border-blue-200 rounded-lg p-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-blue-900">
+                    <span className="text-sm font-medium text-emerald-900">
                       Consultation Fee
                     </span>
-                    <span className="text-xl font-bold text-blue-600">
+                    <span className="text-xl font-bold text-emerald-600">
                       ${appointment.doctor.appointmentFee}
                     </span>
                   </div>
@@ -383,21 +383,21 @@ const AppointmentDetails = ({ appointment }: AppointmentDetailProps) => {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Calendar className="h-5 w-5" />
+                  <Calendar className="h-5 w-5 text-primary" />
                   Schedule
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-linear-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4 space-y-3">
+                <div className="bg-linear-to-br from-emerald-50 to-indigo-50 border border-emerald-200 rounded-lg p-4 space-y-3">
                   <div>
-                    <p className="text-sm text-muted-foreground mb-1">Date</p>
-                    <p className="text-xl font-bold text-blue-900">
+                    <p className="text-sm text-primary mb-1">Date</p>
+                    <p className="text-xl font-bold text-emerald-900">
                       {format(
                         new Date(appointment.schedule.startDateTime),
                         "EEEE",
                       )}
                     </p>
-                    <p className="text-blue-700">
+                    <p className="text-emerald-700">
                       {format(
                         new Date(appointment.schedule.startDateTime),
                         "MMMM d, yyyy",
@@ -408,10 +408,10 @@ const AppointmentDetails = ({ appointment }: AppointmentDetailProps) => {
                   <Separator className="bg-blue-200" />
 
                   <div className="flex items-center gap-2">
-                    <Clock className="h-5 w-5 text-blue-600" />
+                    <Clock className="h-5 w-5 text-emerald-600" />
                     <div>
                       <p className="text-sm text-muted-foreground">Time</p>
-                      <p className="font-semibold text-blue-900">
+                      <p className="font-semibold text-emerald-900">
                         {format(
                           new Date(appointment.schedule.startDateTime),
                           "h:mm a",
@@ -428,13 +428,13 @@ const AppointmentDetails = ({ appointment }: AppointmentDetailProps) => {
                   {appointment.status === AppointmentStatus.SCHEDULED &&
                     appointment.schedule.startDateTime && (
                       <>
-                        <Separator className="bg-blue-200" />
+                        <Separator className="bg-emerald-200" />
                         <div className="pt-2">
                           <AppointmentCountdown
                             appointmentDateTime={
                               appointment.schedule.startDateTime
                             }
-                            className="text-blue-700"
+                            className="text-emerald-700"
                           />
                         </div>
                       </>

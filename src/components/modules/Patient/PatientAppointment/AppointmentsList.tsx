@@ -172,16 +172,16 @@ const AppointmentsList = ({ appointments }: AppointmentsListProps) => {
             {/* Doctor Info */}
             <div>
               <div className="flex items-start gap-3">
-                <div className="bg-blue-100 rounded-full p-2">
-                  <User className="h-5 w-5 text-blue-600" />
+                <div className="bg-emerald-100 rounded-full p-2">
+                  <User className="h-5 w-5 text-emerald-600" />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg">
-                    {appointment.doctor?.name || "N/A"}
+                    Dr. {appointment.doctor?.name || "N/A"}
                   </h3>
-                  {/* <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     {appointment.doctor?.designation || "Doctor"}
-                  </p> */}
+                  </p>
                 </div>
               </div>
             </div>
@@ -189,12 +189,12 @@ const AppointmentsList = ({ appointments }: AppointmentsListProps) => {
             {/* Specialties */}
             {appointment.doctor?.doctorSpecialties &&
               appointment.doctor.doctorSpecialties.length > 0 && (
-                <div className="flex items-center gap-2 flex-wrap">
-                  <Stethoscope className="h-4 w-4 text-muted-foreground" />
+                <div className="flex items-center gap-2 flex-wrap min-h-7">
+                  <Stethoscope className="h-4 w-4 text-primary" />
                   {appointment.doctor.doctorSpecialties
                     .slice(0, 2)
                     .map((ds, idx) => (
-                      <Badge key={idx} variant="secondary" className="text-xs">
+                      <Badge key={idx} variant="default" className="text-xs">
                         {ds.specialities?.title || "N/A"}
                       </Badge>
                     ))}
@@ -208,18 +208,18 @@ const AppointmentsList = ({ appointments }: AppointmentsListProps) => {
 
             {/* Schedule */}
             {appointment.schedule && (
-              <div className="space-y-2 bg-gray-50 rounded-lg p-3">
+              <div className="space-y-2 bg-gray-50 dark:bg-gray-800 rounded-lg p-3">
                 <div className="flex items-center gap-2 text-sm">
-                  <Calendar className="h-4 w-4 text-muted-foreground" />
-                  <span className="font-medium">
+                  <Calendar className="h-4 w-4 text-primary" />
+                  <span className="font-medium text-gray-900 dark:text-gray-100">
                     {format(
                       new Date(appointment.schedule.startDateTime),
                       "EEEE, MMM d, yyyy",
                     )}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Clock className="h-4 w-4 text-muted-foreground" />
+                <div className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+                  <Clock className="h-4 w-4 text-primary" />
                   <span>
                     {format(
                       new Date(appointment.schedule.startDateTime),
@@ -234,7 +234,7 @@ const AppointmentsList = ({ appointments }: AppointmentsListProps) => {
                 </div>
                 {appointment.status === AppointmentStatus.SCHEDULED &&
                   appointment.schedule.startDateTime && (
-                    <div className="pt-2 border-t border-gray-200">
+                    <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
                       <AppointmentCountdown
                         appointmentDateTime={appointment.schedule.startDateTime}
                       />
@@ -246,7 +246,7 @@ const AppointmentsList = ({ appointments }: AppointmentsListProps) => {
             {/* Address */}
             {appointment.doctor?.address && (
               <div className="flex items-start gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
+                <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
                 <span className="line-clamp-2">
                   {appointment.doctor.address}
                 </span>

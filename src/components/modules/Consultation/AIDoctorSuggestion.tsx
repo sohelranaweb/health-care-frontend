@@ -68,7 +68,7 @@ export default function AIDoctorSuggestion() {
   };
 
   return (
-    <Card className="bg-linear-to-br from-primary/5 via-white to-primary/5 border-primary/20 shadow-lg">
+    <Card className="bg-linear-to-br from-primary/10 via-card to-primary/10 border-primary/30 shadow-lg dark:from-primary/5 dark:to-primary/5">
       <CardHeader>
         <div className="flex items-center gap-2">
           <div className="p-2 bg-primary rounded-lg">
@@ -219,13 +219,13 @@ export default function AIDoctorSuggestion() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm flex-1">
                         {doctor.experience > 0 && (
                           <div className="flex items-center gap-2 text-gray-700">
-                            <Briefcase className="h-4 w-4 text-purple-600" />
+                            <Briefcase className="h-4 w-4 text-primary" />
                             <span>{doctor.experience} years exp</span>
                           </div>
                         )}
                         {doctor.qualification && (
                           <div className="flex items-center gap-2 text-gray-700">
-                            <Award className="h-4 w-4 text-purple-600" />
+                            <Award className="h-4 w-4 text-primary" />
                             <span className="truncate">
                               {doctor.qualification}
                             </span>
@@ -233,7 +233,7 @@ export default function AIDoctorSuggestion() {
                         )}
                         {doctor.currentWorkingPlace && (
                           <div className="flex items-center gap-2 text-gray-700 md:col-span-2">
-                            <MapPin className="h-4 w-4 text-purple-600" />
+                            <MapPin className="h-4 w-4 text-primary" />
                             <span className="truncate">
                               {doctor.currentWorkingPlace}
                             </span>
@@ -248,7 +248,7 @@ export default function AIDoctorSuggestion() {
                             ৳{doctor.appointmentFee}
                           </span>
                           <span className="text-xs text-gray-500">
-                            consultation fee
+                            Consultation Fee
                           </span>
                         </div>
                         <Link href={`/consultation/doctor/${doctor.id}`}>

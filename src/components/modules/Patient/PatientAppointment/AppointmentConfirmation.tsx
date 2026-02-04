@@ -114,11 +114,11 @@ const AppointmentConfirmation = ({
                 <h2 className="text-2xl font-bold text-green-900">
                   Appointment Confirmed!
                 </h2>
-                <p className="text-green-700 mt-2">
+                <p className="text-emerald-700 mt-2">
                   Your appointment has been successfully booked
                 </p>
               </div>
-              <p className="text-sm text-green-600">
+              <p className="text-sm text-emerald-600">
                 Redirecting to your appointments...
               </p>
             </div>
@@ -145,15 +145,15 @@ const AppointmentConfirmation = ({
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <User className="h-5 w-5" />
+              <User className="h-5 w-5 text-primary" />
               Doctor Information
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            {/* <div>
+            <div>
               <p className="text-2xl font-semibold">{doctor.name}</p>
               <p className="text-muted-foreground">{doctor.designation}</p>
-            </div> */}
+            </div>
 
             <Separator />
 
@@ -161,14 +161,14 @@ const AppointmentConfirmation = ({
               doctor.doctorSpecialties.length > 0 && (
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <Stethoscope className="h-4 w-4 text-muted-foreground" />
+                    <Stethoscope className="h-4 w-4 text-primary" />
                     <span className="text-sm font-medium">Specialties</span>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {doctor.doctorSpecialties.map((ds, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-md border border-blue-200"
+                        className="px-2 py-1 bg-emerald-50 text-emerald-700 text-xs rounded-md border border-emerald-200"
                       >
                         {ds.specialities?.title || "N/A"}
                       </span>
@@ -191,7 +191,7 @@ const AppointmentConfirmation = ({
                 </div>
               )}
 
-              {/* {doctor.experience !== undefined && (
+              {doctor.experience !== undefined && (
                 <div className="flex justify-between">
                   <span className="text-sm text-muted-foreground">
                     Experience:
@@ -200,7 +200,7 @@ const AppointmentConfirmation = ({
                     {doctor.experience} years
                   </span>
                 </div>
-              )} */}
+              )}
 
               {doctor.currentWorkingPlace && (
                 <div className="flex justify-between">
@@ -219,14 +219,14 @@ const AppointmentConfirmation = ({
             <div className="space-y-2">
               {doctor.contactNumber && (
                 <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-muted-foreground" />
+                  <Phone className="h-4 w-4 text-primary" />
                   <span className="text-sm">{doctor.contactNumber}</span>
                 </div>
               )}
 
               {doctor.address && (
                 <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-muted-foreground" />
+                  <MapPin className="h-4 w-4 text-primary" />
                   <span className="text-sm">{doctor.address}</span>
                 </div>
               )}
@@ -234,12 +234,12 @@ const AppointmentConfirmation = ({
 
             <Separator />
 
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+            <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3">
               <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-blue-900">
+                <span className="text-sm font-medium text-emerald-900">
                   Consultation Fee
                 </span>
-                <span className="text-xl font-bold text-blue-600">
+                <span className="text-xl font-bold text-emerald-600">
                   ${doctor.appointmentFee}
                 </span>
               </div>
@@ -256,13 +256,13 @@ const AppointmentConfirmation = ({
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="bg-linear-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6 space-y-4">
+            <div className="bg-linear-to-br from-emerald-50 to-indigo-50 border border-emerald-200 rounded-lg p-6 space-y-4">
               <div>
-                <p className="text-sm text-muted-foreground mb-1">Date</p>
-                <p className="text-2xl font-bold text-blue-900">
+                <p className="text-sm text-primary mb-1">Date</p>
+                <p className="text-2xl font-bold text-emerald-700">
                   {format(new Date(schedule.startDateTime), "EEEE")}
                 </p>
-                <p className="text-lg text-blue-700">
+                <p className="text-lg text-emerald-700">
                   {format(new Date(schedule.startDateTime), "MMMM d, yyyy")}
                 </p>
               </div>
@@ -270,10 +270,10 @@ const AppointmentConfirmation = ({
               <Separator />
 
               <div className="flex items-center gap-3">
-                <Clock className="h-5 w-5 text-blue-600" />
+                <Clock className="h-5 w-5 text-emerald-600" />
                 <div>
                   <p className="text-sm text-muted-foreground">Time</p>
-                  <p className="text-lg font-semibold text-blue-900">
+                  <p className="text-lg font-semibold text-emerald-700">
                     {format(new Date(schedule.startDateTime), "h:mm a")} -{" "}
                     {format(new Date(schedule.endDateTime), "h:mm a")}
                   </p>
@@ -285,25 +285,25 @@ const AppointmentConfirmation = ({
               <h3 className="font-semibold text-sm">Important Information</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">•</span>
+                  <span className="text-emerald-600 mt-0.5">•</span>
                   <span>
                     Please arrive 10 minutes before your scheduled time
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">•</span>
+                  <span className="text-emerald-600 mt-0.5">•</span>
                   <span>
                     Bring any relevant medical records or prescriptions
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">•</span>
+                  <span className="text-emerald-600 mt-0.5">•</span>
                   <span>
                     You can cancel or reschedule from your appointments page
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-blue-600 mt-0.5">•</span>
+                  <span className="text-emerald-600 mt-0.5">•</span>
                   <span>
                     A confirmation will be sent to your registered email
                   </span>

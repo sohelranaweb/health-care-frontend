@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import DashboardMobileSidebar from "./DashboardMobileSidebar";
 import NotificationDropdown from "./NotificationDropdown";
 import UserDropdown from "./UserDropdown";
+import AISearchDialog from "@/components/shared/AISearchDialog";
+import { ModeToggle } from "@/components/mode-toggle";
 
 interface DashboardNavbarContentProps {
   userInfo: UserInfo;
@@ -91,7 +93,7 @@ const DashboardNavbarContent = ({
           </div>
 
           {/* AI Search Dialog */}
-          {/* <AISearchDialog
+          <AISearchDialog
             initialSymptoms={searchQuery}
             externalOpen={aiDialogOpen}
             onOpenChange={(open) => {
@@ -99,11 +101,13 @@ const DashboardNavbarContent = ({
               if (!open) setSearchQuery("");
             }}
             onSearchComplete={() => setSearchQuery("")}
-          /> */}
+          />
         </div>
 
         {/* Right Side Actions */}
         <div className="flex items-center gap-2">
+          {/* Dark mode features  */}
+          <ModeToggle></ModeToggle>
           {/* Notifications */}
           <NotificationDropdown />
 

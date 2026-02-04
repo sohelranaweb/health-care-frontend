@@ -1,21 +1,30 @@
-import AppointmentsList from "@/components/modules/Patient/PatientAppointment/AppointmentsList";
-import { getMyAppointments } from "@/services/patient/appointment.service";
+import AppointmentDetails from "@/components/modules/Patient/PatientAppointment/AppointmentDetails";
+import { getAppointmentById } from "@/services/patient/appointment.service";
 import { IAppointment } from "@/types/appointments.interface";
+import { notFound } from "next/navigation";
 
-export default async function MyAppointmentsPage() {
-  const response = await getMyAppointments();
-  const appointments: IAppointment[] = response?.data || [];
+interface AppointmentDetailPageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
+
+export default async function AppointmentDetailPage({
+  params,
+}: AppointmentDetailPageProps) {
+  const { id } = await params;
+
+  const response = await getAppointmentById(id);
+
+  if (!response?.success || !response?.data) {
+    notFound();
+  }
+
+  const appointment: IAppointment = response.data;
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">My Appointments</h1>
-        <p className="text-muted-foreground mt-2">
-          View and manage your scheduled appointments
-        </p>
-      </div>
-
-      <AppointmentsList appointments={appointments} />
+    <div className="container mx-auto px-4 py-8">
+      <AppointmentDetails appointment={appointment} />
     </div>
   );
 }

@@ -54,7 +54,7 @@ const AppointmentCountdown = ({
   return (
     <div
       className={`flex items-center gap-2 text-sm ${
-        isPast ? "text-red-600" : "text-blue-600"
+        isPast ? "text-red-600" : "text-emerald-600"
       } ${className}`}
     >
       <Clock className="h-4 w-4" />

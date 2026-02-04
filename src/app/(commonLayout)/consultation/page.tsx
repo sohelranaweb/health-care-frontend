@@ -27,7 +27,12 @@ const ConsultationPage = async ({
 
   const doctors = doctorsResponse?.data || [];
   const specialties = specialtiesResponse?.data || [];
-  // console.log("doctors consultation page", doctors);
+
+  // Calculate totalPages from meta
+  const currentPage = doctorsResponse?.meta?.page || 1;
+  const total = doctorsResponse?.meta?.total || 0;
+  const limit = doctorsResponse?.meta?.limit || 10;
+  const totalPages = Math.ceil(total / limit);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -53,10 +58,7 @@ const ConsultationPage = async ({
         </Suspense>
 
         {/* Pagination */}
-        <TablePagination
-          currentPage={doctorsResponse?.meta?.page || 1}
-          totalPages={doctorsResponse?.meta?.totalPage || 1}
-        />
+        <TablePagination currentPage={currentPage} totalPages={totalPages} />
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const statusConfig: Record<
   [AppointmentStatus.SCHEDULED]: {
     variant: "default",
     label: "Scheduled",
-    className: "bg-blue-500 hover:bg-blue-600",
+    className: "bg-emerald-500 hover:bg-emerald-600",
   },
   [AppointmentStatus.INPROGRESS]: {
     variant: "secondary",

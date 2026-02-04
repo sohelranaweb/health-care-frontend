@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import UserDropdown from "../modules/Dashboard/UserDropdown";
+import AISearchDialog from "./AISearchDialog";
 // import AISearchDialog from "./AISSearchDialog";
 
 interface MobileMenuProps {
@@ -49,7 +50,7 @@ const MobileMenu = ({
             ))}
             <div className="border-t pt-4 flex flex-col space-y-4">
               <div className="flex justify-center w-full">
-                {/* <AISearchDialog /> */}
+                <AISearchDialog />
               </div>
               {hasAccessToken && userInfo ? (
                 <>

@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { IDoctor } from "@/types/doctor.interface";
 import {
@@ -12,6 +13,7 @@ import {
   MapPin,
   Phone,
   Star,
+  Stethoscope,
 } from "lucide-react";
 
 interface DoctorProfileContentProps {
@@ -64,9 +66,10 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
               {/* Specialties */}
               {doctor.doctorSpecialties &&
                 doctor.doctorSpecialties.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 min-h-7">
                     {doctor.doctorSpecialties.map((specialty) => (
-                      <Badge key={specialty.specialitiesId} variant="secondary">
+                      <Badge key={specialty.specialitiesId} variant="default">
+                        <Stethoscope className="h-3 w-3 mr-1" />
                         {specialty.specialities?.title || "Specialty"}
                       </Badge>
                     ))}
@@ -75,21 +78,23 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
 
               {/* Rating & Fee */}
               <div className="flex flex-wrap gap-4">
-                {doctor.averageRating && (
+                <div className="flex items-center gap-2">
+                  <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  <span className="font-semibold">
+                    {doctor.averageRating?.toFixed(1) || "N/A"}
+                  </span>
+                </div>
+                {/* {doctor.averageRating && (
                   <div className="flex items-center gap-2">
                     <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                    <span className="font-semibold">
-                      {doctor.averageRating.toFixed(1)}
-                    </span>
+                    <span className="font-semibold">Rating</span>
                   </div>
-                )}
+                )} */}
                 <div className="flex items-center gap-2 text-primary">
                   <DollarSign className="h-5 w-5" />
-                  <span className="font-semibold">
-                    ${doctor.appointmentFee}
-                  </span>
+                  <span className="font-semibold">{doctor.appointmentFee}</span>
                   <span className="text-sm text-muted-foreground">
-                    per visit
+                    Per Visit
                   </span>
                 </div>
               </div>
@@ -113,16 +118,16 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="flex items-center gap-3">
-              <Mail className="h-5 w-5 text-muted-foreground" />
+              <Mail className="h-5 w-5 text-primary" />
               <span>{doctor.email}</span>
             </div>
             <div className="flex items-center gap-3">
-              <Phone className="h-5 w-5 text-muted-foreground" />
+              <Phone className="h-5 w-5 text-primary" />
               <span>{doctor.contactNumber}</span>
             </div>
             {doctor.address && (
               <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-muted-foreground mt-1" />
+                <MapPin className="h-5 w-5 text-primary mt-1" />
                 <span>{doctor.address}</span>
               </div>
             )}
@@ -136,7 +141,7 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="flex items-center gap-3">
-              <Briefcase className="h-5 w-5 text-muted-foreground" />
+              <Briefcase className="h-5 w-5 text-primary" />
               <div>
                 <p className="text-sm text-muted-foreground">Experience</p>
                 <p className="font-semibold">
@@ -147,7 +152,7 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Hospital className="h-5 w-5 text-muted-foreground" />
+              <Hospital className="h-5 w-5 text-primary" />
               <div>
                 <p className="text-sm text-muted-foreground">
                   Current Workplace
@@ -156,7 +161,7 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Calendar className="h-5 w-5 text-muted-foreground" />
+              <Calendar className="h-5 w-5 text-primary" />
               <div>
                 <p className="text-sm text-muted-foreground">
                   Registration Number
@@ -172,7 +177,7 @@ const DoctorProfileContent = ({ doctor }: DoctorProfileContentProps) => {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <GraduationCap className="h-5 w-5" />
+            <GraduationCap className="h-5 w-5 text-primary" />
             Qualification & Education
           </CardTitle>
         </CardHeader>

@@ -1,4 +1,6 @@
 import Hero from "@/components/modules/Home/Hero";
+import HomeDiagnosticService from "@/components/modules/Home/HomeDiagnosticeService";
+import WhySrCare from "@/components/modules/Home/WhySrCare";
 import Head from "next/head";
 
 export default async function Home() {
@@ -15,6 +17,8 @@ export default async function Home() {
       </Head>
       <main className="">
         <Hero></Hero>
+        <WhySrCare></WhySrCare>
+        <HomeDiagnosticService></HomeDiagnosticService>
       </main>
     </>
   );

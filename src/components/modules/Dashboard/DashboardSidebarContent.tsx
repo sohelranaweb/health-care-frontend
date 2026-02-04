@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { NavSection } from "@/types/dashboard.interface";
 import { UserInfo } from "@/types/user.interface";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
+import { HeartPulse } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -26,8 +27,19 @@ const DashboardSidebarContent = ({
     <div className="hidden md:flex h-full w-64 flex-col border-r bg-card">
       {/* Logo/Brand */}
       <div className="flex h-16 items-center border-b px-6">
-        <Link href={dashboardHome} className="flex items-center space-x-2">
+        {/* <Link href={dashboardHome} className="flex items-center space-x-2">
           <span className="text-xl font-bold text-primary">PH Healthcare</span>
+        </Link> */}
+        <Link
+          href={dashboardHome}
+          className="flex items-center gap-2 group cursor-pointer"
+        >
+          <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+            <HeartPulse className="w-8 h-8 text-primary" />
+          </div>
+          <span className="text-2xl font-bold bg-clip-text text-transparent bg-linear-to-r from-primary to-emerald-800 dark:from-emerald-400 dark:to-emerald-600">
+            SR Care
+          </span>
         </Link>
       </div>
 

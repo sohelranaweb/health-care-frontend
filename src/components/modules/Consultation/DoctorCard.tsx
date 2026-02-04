@@ -12,7 +12,14 @@ import {
 } from "@/components/ui/card";
 import { getInitials } from "@/lib/formatters";
 import { IDoctor } from "@/types/doctor.interface";
-import { Clock, DollarSign, Eye, MapPin, Star } from "lucide-react";
+import {
+  Clock,
+  DollarSign,
+  Eye,
+  MapPin,
+  Star,
+  Stethoscope,
+} from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import BookAppointmentDialog from "./BookAppointmentDialog";
@@ -40,9 +47,9 @@ export default function DoctorCard({ doctor }: DoctorCard) {
               <CardTitle className="text-lg line-clamp-1">
                 Dr. {doctor.name}
               </CardTitle>
-              {/* <CardDescription className="line-clamp-1">
+              <CardDescription className="line-clamp-1">
                 {doctor.designation}
-              </CardDescription> */}
+              </CardDescription>
 
               <div className="flex items-center gap-2 mt-2">
                 <div className="flex items-center gap-1">
@@ -53,7 +60,8 @@ export default function DoctorCard({ doctor }: DoctorCard) {
                 </div>
                 {doctor.doctorSpecialties &&
                   doctor.doctorSpecialties.length > 0 && (
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge variant="default" className="text-xs">
+                      <Stethoscope className="h-3 w-3 mr-1" />
                       {doctor.doctorSpecialties[0].specialities?.title}
                     </Badge>
                   )}
@@ -65,20 +73,20 @@ export default function DoctorCard({ doctor }: DoctorCard) {
         <CardContent className="space-y-3 pb-3">
           <div className="grid grid-cols-2 gap-3 text-sm">
             <div className="flex items-center gap-2 text-muted-foreground">
-              <Clock className="h-4 w-4 shrink-0" />
-              {/* <span className="truncate">{doctor.experience} years exp</span> */}
+              <Clock className="h-4 w-4 shrink-0 text-primary" />
+              <span className="truncate">{doctor.experience} years exp</span>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground">
-              <DollarSign className="h-4 w-4 shrink-0" />
+              <DollarSign className="h-4 w-4 shrink-0 text-primary" />
               <span className="font-semibold text-foreground">
-                ${doctor.appointmentFee}
+                {doctor.appointmentFee}
               </span>
             </div>
           </div>
 
           {doctor.currentWorkingPlace && (
             <div className="flex items-start gap-2 text-sm text-muted-foreground">
-              <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
+              <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-primary" />
               <span className="line-clamp-1">{doctor.currentWorkingPlace}</span>
             </div>
           )}
@@ -95,7 +103,7 @@ export default function DoctorCard({ doctor }: DoctorCard) {
               {doctor.doctorSpecialties.slice(1, 3).map((specialty) => (
                 <Badge
                   key={specialty.specialitiesId}
-                  variant="outline"
+                  variant="default"
                   className="text-xs"
                 >
                   {specialty.specialities?.title}

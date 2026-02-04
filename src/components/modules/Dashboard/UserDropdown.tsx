@@ -24,7 +24,7 @@ const UserDropdown = ({ userInfo }: UserDropdownProps) => {
   const handleLogout = async () => {
     await logoutUser();
   };
-  // console.log("userInfo", userInfo);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -33,7 +33,7 @@ const UserDropdown = ({ userInfo }: UserDropdownProps) => {
             {userInfo.name.charAt(0).toUpperCase()}
           </span>
         </Button> */}
-        <Avatar className="h-8 w-8 cursor-pointer">
+        <Avatar className="h-8 w-8 cursor-pointer border-2 border-primary">
           <AvatarImage
             src={
               userInfo?.admin?.profilePhoto ??
