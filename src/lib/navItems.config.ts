@@ -266,6 +266,17 @@ export const adminNavItems: NavSection[] = [
       },
     ],
   },
+  {
+    title: "Auth Logs Monitor",
+    items: [
+      {
+        title: "Log Data",
+        href: "/admin/dashboard/auth-logs",
+        icon: "User", // ✅ String
+        roles: ["SUPER_ADMIN", "ADMIN"],
+      },
+    ],
+  },
 ];
 
 export const getNavItemsByRole = async (
