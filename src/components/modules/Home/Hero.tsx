@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShieldCheck, Users } from "lucide-react";
+import Link from "next/link";
 const Hero = () => {
   return (
     <div className=" w-full bg-white relative">
@@ -61,12 +62,14 @@ const Hero = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button
-                  size="lg"
-                  className="rounded-full h-14 px-8 text-lg shadow-xl shadow-primary/20 hover:scale-105 transition-transform"
-                >
-                  Get Started <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+                <Link href="consultation">
+                  <Button
+                    size="lg"
+                    className="rounded-full h-14 px-8 text-lg shadow-xl shadow-primary/20 hover:scale-105 transition-transform"
+                  >
+                    Get Started <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
                 <Button
                   variant="outline"
                   size="lg"

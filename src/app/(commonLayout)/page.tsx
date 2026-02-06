@@ -1,5 +1,8 @@
+import CorporatePartner from "@/components/modules/Home/CorporatePartner";
 import Hero from "@/components/modules/Home/Hero";
 import HomeDiagnosticService from "@/components/modules/Home/HomeDiagnosticeService";
+import PremiumMember from "@/components/modules/Home/PremiumMember";
+import Specialities from "@/components/modules/Home/Specialities";
 import WhySrCare from "@/components/modules/Home/WhySrCare";
 import Head from "next/head";
 
@@ -18,7 +21,10 @@ export default async function Home() {
       <main className="">
         <Hero></Hero>
         <WhySrCare></WhySrCare>
+        <Specialities></Specialities>
         <HomeDiagnosticService></HomeDiagnosticService>
+        <PremiumMember></PremiumMember>
+        <CorporatePartner></CorporatePartner>
       </main>
     </>
   );

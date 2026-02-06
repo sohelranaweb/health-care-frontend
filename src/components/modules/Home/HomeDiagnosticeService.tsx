@@ -1,3 +1,4 @@
+"use client";
 import { Clock, FileCheck, Home } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,7 +40,7 @@ const HomeDiagnosticService = () => {
           backgroundSize: "100% 100%",
         }}
       />
-      <section className="py-20 px-4 relative">
+      <section className="py-20 relative">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-[3fr_2fr] gap-16 lg:gap-24 items-center">
             <div className="space-y-8 lg:space-y-10">
@@ -82,7 +83,7 @@ const HomeDiagnosticService = () => {
               {/* CTA Button */}
               <div className="pt-2">
                 <Link
-                  href="/book-test"
+                  href="/diagnostics"
                   className="inline-block px-8 py-3.5 bg-primary hover:bg-emerald-700 text-white font-semibold rounded-lg transition-colors"
                 >
                   Book Test

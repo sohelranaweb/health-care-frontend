@@ -1,3 +1,4 @@
+"use client";
 import { Check, Stethoscope, Pill, Heart } from "lucide-react";
 import whySrCareImg from "../../../assests/images/whysrcare.webp";
 import Image from "next/image";
@@ -38,7 +39,7 @@ const WhySrCare = () => {
           backgroundSize: "100% 100%",
         }}
       />
-      <section className="py-16 px-4 relative">
+      <section className="py-16 relative">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
