@@ -16,7 +16,7 @@ const AuthLogsTable = ({ logs }: ActivityTableProps) => {
         columns={AuthLogsColumns}
         onDelete={handleDelete}
         getRowKey={(log) => log.id}
-        emptyMessage="No specialities found"
+        emptyMessage="No auth logs found"
       />
     </div>
   );
